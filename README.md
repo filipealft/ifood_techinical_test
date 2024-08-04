@@ -1,26 +1,26 @@
 # GitHub Followers Data
 
-Este projeto coleta dados dos seguidores de um usuário específico do GitHub, processa e salva os dados em um arquivo CSV.
+This project collects data from the followers of a specific GitHub user, processes the data, and saves it to a CSV file.
 
-## Requisitos
+## Requirements
 
 - Python 3.7+
 - PySpark
 - Requests
 
-## Configuração
+## Configuration
 
-### Variáveis de Ambiente
+### Environment Variables
 
-Defina as seguintes variáveis de ambiente:
+Set the following environment variables:
 
-- `GITHUB_TOKEN`: Seu token de acesso pessoal do GitHub.
-- `USER`: Nome de usuário do GitHub para coletar os seguidores.
-- `CSV_OUTPUT`: Caminho para o arquivo de saída CSV.
+- `GITHUB_TOKEN`: Your personal GitHub access token.
+- `USER`: GitHub username to collect followers from.
+- `CSV_OUTPUT`: Path to the output CSV file.
 
-### Instalação
+### Installation
 
-Instale as dependências necessárias:
+Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
