@@ -21,11 +21,13 @@ Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
 
 ### Running the Code
 Run the solution by executing the main.py file:
 
 ```bash
 python main.py
+```
 
 
