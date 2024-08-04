@@ -1,31 +1,66 @@
-# github_client.py
-
 import requests
 
 class GitHubClient:
     def __init__(self, token, user):
+        """
+        Initialize GitHubClient with a token and a username.
+
+        Args:
+            token (str): GitHub access token.
+            user (str): GitHub username.
+        """
         self.github_token = token
         self.user = user
 
     def make_github_request(self, url):
+        """
+        Make a request to the GitHub API.
+
+        Args:
+            url (str): API endpoint URL.
+
+        Returns:
+            dict: JSON response from the API.
+        """
         headers = {'Authorization': f'token {self.github_token}'}
         try:
             response = requests.get(url, headers=headers)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
-            print(f"Erro ao acessar a API do GitHub: {e}")
+            print(f"Error accessing the GitHub API: {e}")
             return None
 
     def get_github_user_data(self, username):
+        """
+        Get data for a GitHub user.
+
+        Args:
+            username (str): GitHub username.
+
+        Returns:
+            dict: User data.
+        """
         url = f"https://api.github.com/users/{username}"
         return self.make_github_request(url)
 
     def get_all_followers(self):
+        """
+        Get all followers of a GitHub user.
+
+        Returns:
+            list: List of followers.
+        """
         url = f"https://api.github.com/users/{self.user}/followers"
         return self.make_github_request(url)
 
     def collect_followers_data(self):
+        """
+        Collect data of all followers.
+
+        Returns:
+            list: List of followers' data.
+        """
         followers = self.get_all_followers()
         followers_data = []
         if followers:
